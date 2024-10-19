@@ -32,20 +32,33 @@
 
     <div class="stats">
         <h2>Mining Pool Stats</h2>
-        <div class="stat-item">Participants: <span id="participants">loading...</span></div>
-        <div class="stat-item">Total Hashrate: <span id="hashrate">loading...</span></div>
-        <div class="stat-item">Current Reward: <span id="reward">loading...</span></div>
+        <div class="stat-item">Participants: <span id="participants">125</span></div>
+        <div class="stat-item">Total Hashrate: <span id="hashrate">1250 TH/s</span></div>
+        <div class="stat-item">Current Reward: <span id="reward">6.25 BTC</span></div>
     </div>
 
     <script>
-        // Статические данные для демонстрации
-        function loadMiningStats() {
-            document.getElementById("participants").textContent = 124;  // Пример: 124 участника
-            document.getElementById("hashrate").textContent = "1250 TH/s";  // Пример хешрейта
-            document.getElementById("reward").textContent = "6.25 BTC";  // Пример награды
+        // Базовое количество участников
+        const baseParticipants = 125;
+
+        // Функция для генерации случайного числа в пределах ±15% от базового числа
+        function generateRandomParticipants() {
+            const min = baseParticipants * 0.85; // Минимум: -15%
+            const max = baseParticipants * 1.15; // Максимум: +15%
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        window.onload = loadMiningStats;
+        // Функция для обновления количества участников каждые 5 секунд
+        function updateParticipants() {
+            const participantsElement = document.getElementById('participants');
+            participantsElement.textContent = generateRandomParticipants();
+        }
+
+        // Обновление каждые 5 секунд
+        setInterval(updateParticipants, 5000);
+
+        // Первая загрузка данных
+        window.onload = updateParticipants;
     </script>
     
 </body>
