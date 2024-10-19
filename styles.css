@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+body {
+    font-family: 'Merriweather', serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.description {
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 1.2em;  /* Увеличиваем размер шрифта */
+    line-height: 1.8;  /* Увеличиваем межстрочный интервал */
+}
+
+.stats {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: inline-block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Merriweather', serif;
+}
+
+.stats h2 {
+    color: #00aaff;
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.stat-item {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 10px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Merriweather', serif;
+}
+
+button:hover {
+    background-color: #0088cc;
+}
+
+.hidden {
+    display: none;
+}
+
+#howItWorks {
+    margin-top: 15px;
+    font-size: 1.2em;
+    text-align: center; 
+    font-family: 'Merriweather', serif;
+    line-height: 1.8;
+    transition: opacity 0.5s ease-in-out;
+}
