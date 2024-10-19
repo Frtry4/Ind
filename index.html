@@ -12,6 +12,16 @@
             text-align: center;
             padding-top: 50px;
         }
+        .description {
+            background-color: #e0f7fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .stats {
             background-color: #fff;
             border-radius: 10px;
@@ -45,6 +55,38 @@
 </head>
 <body>
 
+    <div class="description">
+        <h2>Welcome to the BTC to ETH Investment Platform</h2>
+        <p>
+            At our platform, users can deposit <strong>Bitcoin (BTC)</strong> into a shared pool and receive <strong>Ethereum (ETH)</strong> as rewards over time. By participating in this dynamic investment model, your BTC contributes to the overall pool, and as the pool grows, so does the ETH you earn.
+        </p>
+        <p>
+            Our system works by dynamically adjusting the number of participants, the total BTC deposited, and the amount of ETH distributed. The more you invest in BTC, the more ETH you stand to gain as part of the shared rewards structure. Every 14 days, your Ethereum rewards are calculated based on the total BTC contribution and the current pool's performance.
+        </p>
+        
+        <h3>How It Works</h3>
+        <p>
+            The BTC to ETH investment platform utilizes smart contracts on the Ethereum blockchain to manage and automate the conversion process. Here's how the technology works:
+        </p>
+        <p>
+            1. <strong>Smart Contracts:</strong> Once you deposit your BTC, a smart contract on the Ethereum network is triggered. This contract ensures transparency and fairness by securely holding your BTC until the appropriate conditions for ETH distribution are met. The smart contract operates autonomously, removing the need for intermediaries.
+        </p>
+        <p>
+            2. <strong>Cross-Chain Bridge:</strong> To convert BTC to ETH, the platform uses a cross-chain bridge that securely transfers BTC from the Bitcoin network to the Ethereum network. This process is decentralized, ensuring that assets move between blockchains without centralized control.
+        </p>
+        <p>
+            3. <strong>Liquidity Pool:</strong> Your BTC is added to a shared liquidity pool, where it's locked for a period of time. As this pool grows, it earns ETH from various decentralized financial (DeFi) protocols and strategies. The rewards in ETH are proportional to the total BTC contribution and the pool's performance.
+        </p>
+        <p>
+            4. <strong>Automated Distribution:</strong> After the specified period (14 days), the smart contract calculates the amount of ETH earned and distributes it proportionally to all participants based on their BTC contribution. The platform dynamically adjusts the ETH rewards depending on market conditions and the pool's liquidity.
+        </p>
+        <p>
+            Join today, deposit your BTC, and start earning ETH from the collective efforts of the pool!
+        </p>
+    </div>
+    
+
+    <!-- Статистика -->
     <div class="stats">
         <h2>BTC to ETH Platform</h2>
         <div class="stat-item">Participants: <span id="participants">1322</span></div>
@@ -52,6 +94,7 @@
         <div class="stat-item">Earned ETH: <span id="eth">302.24 ETH</span></div>
     </div>
 
+    <!-- Ввод и расчет -->
     <div class="input-section">
         <h3>Calculate Your ETH Earnings for 14 Days</h3>
         <input type="number" id="userBTC" placeholder="Enter your BTC" />
