@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining Pool Stats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .stats {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: inline-block;
+        }
+        .stats h2 {
+            color: #00aaff;
+        }
+        .stat-item {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stats">
+        <h2>Mining Pool Stats</h2>
+        <div class="stat-item">Participants: <span id="participants">loading...</span></div>
+        <div class="stat-item">Total Hashrate: <span id="hashrate">loading...</span></div>
+        <div class="stat-item">Current Reward: <span id="reward">loading...</span></div>
+    </div>
+
+    <script>
+        // Статические данные для демонстрации
+        function loadMiningStats() {
+            document.getElementById("participants").textContent = 124;  // Пример: 124 участника
+            document.getElementById("hashrate").textContent = "1250 TH/s";  // Пример хешрейта
+            document.getElementById("reward").textContent = "6.25 BTC";  // Пример награды
+        }
+
+        window.onload = loadMiningStats;
+    </script>
+    
+</body>
+</html>
