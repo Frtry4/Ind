@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mining Pool Stats</title>
+    <title>BTC to ETH Platform</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,39 +26,110 @@
             font-size: 1.5em;
             margin: 10px 0;
         }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 10px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
     <div class="stats">
-        <h2>Mining Pool Stats</h2>
-        <div class="stat-item">Participants: <span id="participants">125</span></div>
-        <div class="stat-item">Total Hashrate: <span id="hashrate">1250 TH/s</span></div>
-        <div class="stat-item">Current Reward: <span id="reward">6.25 BTC</span></div>
+        <h2>BTC to ETH Platform</h2>
+        <div class="stat-item">Participants: <span id="participants">1322</span></div>
+        <div class="stat-item">Deposited BTC: <span id="btc">50 BTC</span></div>
+        <div class="stat-item">Earned ETH: <span id="eth">300 ETH</span></div>
+    </div>
+
+    <div class="input-section">
+        <h3>Calculate Your ETH Earnings</h3>
+        <input type="number" id="userBTC" placeholder="Enter your BTC" />
+        <select id="timePeriod">
+            <option value="14">14 days</option>
+            <option value="30">30 days</option>
+        </select>
+        <button onclick="calculateEarnings()">Calculate</button>
+        <div class="stat-item">Your ETH Earnings: <span id="userEarnings">0 ETH</span></div>
     </div>
 
     <script>
         // Базовое количество участников
-        const baseParticipants = 125;
+        const baseParticipants = 1322;
+        let currentETH = 300; // Начальное значение для добытого эфира
+        let totalBTC = 50; // Общее количество BTC депозита
 
-        // Функция для генерации случайного числа в пределах ±15% от базового числа
+        // Функция для генерации случайного количества участников в пределах ±15%
         function generateRandomParticipants() {
-            const min = baseParticipants * 0.85; // Минимум: -15%
-            const max = baseParticipants * 1.15; // Максимум: +15%
+            const min = Math.floor(baseParticipants * 0.85); // Минимум: -15%
+            const max = Math.floor(baseParticipants * 1.15); // Максимум: +15%
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        // Функция для обновления количества участников каждые 5 секунд
-        function updateParticipants() {
-            const participantsElement = document.getElementById('participants');
-            participantsElement.textContent = generateRandomParticipants();
+        // Функция для генерации случайной суммы BTC для депозита
+        function generateRandomBTC() {
+            const min = 45; // Минимум 45 BTC
+            const max = 60; // Максимум 60 BTC
+            totalBTC = (Math.random() * (max - min) + min).toFixed(2); // Обновляем общее количество BTC
+            return totalBTC;
         }
 
-        // Обновление каждые 5 секунд
-        setInterval(updateParticipants, 5000);
+        // Функция для увеличения ETH на случайное значение от 0,2% до 1%
+        function generateETHIncrement() {
+            const minPercent = 0.002; // 0.2%
+            const maxPercent = 0.01; // 1%
+            const percent = Math.random() * (maxPercent - minPercent) + minPercent;
+            return currentETH * percent;
+        }
+
+        // Функция для обновления статистики участников, депозита BTC и заработанного ETH
+        function updateStats() {
+            const participantsElement = document.getElementById('participants');
+            const btcElement = document.getElementById('btc');
+            const ethElement = document.getElementById('eth');
+
+            const participants = generateRandomParticipants();
+            const depositedBTC = generateRandomBTC();
+            const ethIncrement = generateETHIncrement();
+            
+            // Увеличиваем текущий ETH на случайное значение
+            currentETH += ethIncrement;
+
+            participantsElement.textContent = participants;
+            btcElement.textContent = depositedBTC + " BTC";
+            ethElement.textContent = currentETH.toFixed(2) + " ETH"; // Отображаем текущее значение ETH
+        }
+
+        // Функция для расчета прибыли в ETH на основе введенного пользователем BTC и выбранного периода
+        function calculateEarnings() {
+            const userBTC = parseFloat(document.getElementById('userBTC').value); // Получаем количество BTC от пользователя
+            const userEarningsElement = document.getElementById('userEarnings');
+            const timePeriod = parseInt(document.getElementById('timePeriod').value); // Получаем период времени (14 или 30 дней)
+            const dailyIncrease = 0.005; // Допустим, ежедневное увеличение ETH 0.5%
+            
+            if (userBTC && userBTC > 0) {
+                const userEarnings = (userBTC / totalBTC) * currentETH * Math.pow(1 + dailyIncrease, timePeriod); // Учитываем увеличение за период
+                userEarningsElement.textContent = userEarnings.toFixed(4) + " ETH"; // Отображаем результат
+            } else {
+                userEarningsElement.textContent = "0 ETH"; // Если введено некорректное значение
+            }
+        }
+
+        // Обновляем данные каждые 5 секунд
+        setInterval(updateStats, 5000);
 
         // Первая загрузка данных
-        window.onload = updateParticipants;
+        window.onload = updateStats;
     </script>
     
 </body>
