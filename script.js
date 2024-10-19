@@ -32,11 +32,12 @@ function changeParticipantsAndBTC() {
 
 // Функция для увеличения ETH
 function generateETHIncrement() {
-    const minPercent = 0.002; // 0.2%
-    const maxPercent = 0.01; // 1%
+    const minPercent = 0.0004; // 0.04% вместо 0.2%
+    const maxPercent = 0.002; // 0.2% вместо 1%
     const percent = Math.random() * (maxPercent - minPercent) + minPercent;
     return totalBTC * percent;
 }
+
 
 // Функция для обновления заработанного ETH
 function updateStats() {
