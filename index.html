@@ -3,43 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTC to ETH Platform</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>GPS Resource Collection</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+    <div id="map"></div>
 
-    <div class="description">
-        <h2>Welcome to the BTC to ETH Investment Platform</h2>
-        <p>
-            At our platform, users can deposit <strong>Bitcoin (BTC)</strong> into a shared pool and receive <strong>Ethereum (ETH)</strong> as rewards over time.
-        </p>
-        <button id="toggleHowItWorks">How It Works</button>
-        <div id="howItWorks" class="hidden">
-            <p>
-                The BTC to ETH platform utilizes smart contracts on the Ethereum blockchain to automate the conversion process. Here's how the technology works:
-            </p>
-            <p><strong>1. Smart Contracts:</strong> Once you deposit BTC, a smart contract is triggered to manage your contribution.</p>
-            <p><strong>2. Cross-Chain Bridge:</strong> BTC is transferred from the Bitcoin network to the Ethereum network.</p>
-            <p><strong>3. Liquidity Pool:</strong> Your BTC is added to a shared liquidity pool to generate ETH rewards.</p>
-            <p><strong>4. Automated Distribution:</strong> ETH is distributed after 14 days based on your BTC deposit.</p>
-        </div>
-    </div>
-
-    <div class="stats">
-        <h2>BTC to ETH Platform</h2>
-        <div class="stat-item">Participants: <span id="participants">1322</span></div>
-        <div class="stat-item">Deposited BTC: <span id="btc">51.77 BTC</span></div>
-        <div class="stat-item">Earned ETH: <span id="eth">302.24 ETH</span></div>
-    </div>
-
-    <div class="input-section">
-        <h3>Calculate Your ETH Earnings for 14 Days</h3>
-        <input type="number" id="userBTC" placeholder="Enter your BTC" />
-        <button id="calculateButton">Calculate</button>
-        <div class="stat-item">Your ETH Earnings in 14 days: <span id="userEarnings">0 ETH</span></div>
-    </div>
-
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
